@@ -1,0 +1,317 @@
+<!DOCTYPE>
+<html lang="zh-cn">
+<head>
+<!--[if lt IE 9]>
+<script src="/lib/html5shiv/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="/lib/respond/respond/respond.min.js"></script>
+<![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css"
+href="/sea-modules/bootstrap/bootstrap/3.1.1/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+href="/sea-modules/bootstrap/bootstrap-switch/2.0.1/css/bootstrap-switch.min.css" />
+<link rel="stylesheet" type="text/css"
+href="/sea-modules/jquery/jwysiwyg/0.98.dev/jquery.wysiwyg.css" />
+
+<script type="text/javascript" src="/sea-modules/seajs/seajs/2.1.1/sea.js"></script>
+<script type="text/javascript">
+seajs
+.config({
+	base:"/sea-modules",
+	alias : {
+		"jquery" : "jquery/jquery/1.7.2/jquery",
+		"jwysiwyg" : "jquery/jwysiwyg/0.98.dev/jquery.wysiwyg",
+		"bootstrap" : "bootstrap/bootstrap/3.1.1/js/bootstrap.min",
+		"responsive-nav" : "bootstrap/responsive-nav/1.0.25/js/responsive-nav.min",
+		"bootstrap-switch" : "bootstrap/bootstrap-switch/2.0.1/js/bootstrap-switch.min"		
+	},
+	preload : [ "bootstrap" ],
+	plugins : [ 'text' ]
+});
+seajs.use("../src/admin1/main");
+</script>
+
+<title>风格1</title>
+</head>
+<body>
+	<!-- 导航 -->
+	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav"
+	role="banner">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse"
+			data-target=".bs-navbar-collapse">
+			<span class="sr-only">Toggle navigation</span> <span
+			class="icon-bar"></span> <span class="icon-bar"></span> <span
+			class="icon-bar"></span>
+		</button>
+		<a href="/admin" class="navbar-brand">XXX公司</a>
+	</div>
+	<nav class="collapse navbar-collapse bs-navbar-collapse"
+	role="navigation">
+	<ul class="nav navbar-nav" id="menufirstcontext">
+		<li><a href="javascript:void(0)">链接1</a></li>
+		<li><a href="javascript:void(0)">链接1</a></li>
+		<li><a href="javascript:void(0)">链接1</a></li>
+		<li><a href="javascript:void(0)">链接1</a></li>
+		<li><a href="javascript:void(0)">链接1</a></li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a id="repassword" href="javascript:void(0)">修改密码</a></li>
+		<li><a href="javascript:void(0)">登出</a></li>
+	</ul>
+</nav>
+</div>
+</header>
+<!-- 	登录框 -->
+<div id="repassword_madal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="repassword_form" action="/repassword" method="post">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+					<h4 class="modal-title">修改密码</h4>
+				</div>
+				<div class="modal-body">
+					<div style="width: 60%">
+						<div class="form-group">
+							<label for="oldPassword">旧密码</label> <input type="text"
+							name="oldPassword" class="form-control" id="oldPassword"
+							placeholder="请输入用户名">
+						</div>
+						<div class="form-group">
+							<label for="newPassword">新密码密码</label> <input type="password"
+							name="newPassword" class="form-control" id="newPassword"
+							placeholder="请输入密码">
+						</div>
+
+						<div class="form-group">
+							<label for="newPassword">新密码密码</label> <input type="password"
+							name="newPassword2" class="form-control" id="newPassword2"
+							placeholder="请在输入一次密码">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" id="password_submit" class="btn btn-primary">提交</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="container" style="margin-top: 50px; padding-top: 30px;">
+	<div>
+		<nav id="body-nav" class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#body-nav-bar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+				class="icon-bar"></span> <span class="icon-bar"></span><span
+				class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">首页</a>
+		</div>
+		<div id="body-nav-bar-collapse" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li id="nav_insert"><a href="javascript:void(0)"><i
+					class="glyphicon glyphicon-plus"></i>添加</a></li>
+					<li style="height: 35px; margin-top: 7px;"><input
+						id="nav_formOrder" class="switch-large" value="true"
+						type="checkbox" data-on-label="正常模式" data-off-label="排序模式"
+						checked></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="javascript:void(0)"
+							class="dropdown-toggle" data-toggle="dropdown">每页10条<b
+							class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">10</a></li>
+								<li><a href="#">20</a></li>
+								<li><a href="#">30</a></li>
+								<li><a href="#">40</a></li>
+								<li><a href="#">全部</a></li>
+							</ul></li>
+						</ul>
+						<form class="navbar-form navbar-right" role="search" method="get"
+						style="border-bottom: none;">
+						<input id="pageSize" name="pageSize" hidden="true" value="10">
+						<div class="form-group" style="height: 34px;"></div>
+						<div class="form-group">
+							<input id="nav_formText" name="keyWords" type="text"
+							class="form-control" placeholder="请输入关键字">
+						</div>
+						<div class="form-group">
+							<button type="submit" id="nav_formButton" class="btn btn-default">
+								&nbsp;&nbsp;&nbsp;查&nbsp;&nbsp;询&nbsp;&nbsp;&nbsp;</button>
+							</div>
+						</form>
+
+					</div>
+				</nav>
+				<script type="text/javascript">
+				//$("#nav_formOrder").bootstrapSwitch();
+				</script>
+				<table id="data_table" class="table table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>产品名称</th>
+							<th>创建日期</th>
+							<th>游览总数</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>哆啦A梦</td>
+							<td>[2001-9-10]</td>
+							<td>3000</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>哆啦A梦</td>
+							<td>[2001-9-10]</td>
+							<td>3000</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>哆啦A梦</td>
+							<td>[2001-9-10]</td>
+							<td>3000</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>哆啦A梦</td>
+							<td>[2001-9-10]</td>
+							<td>3000</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>哆啦A梦</td>
+							<td>[2001-9-10]</td>
+							<td>3000</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4" align="center">
+								<ul class="pagination">
+									<li class="disabled"><a href="#">&laquo;</a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">&raquo;</a></li>
+								</ul>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+
+
+			<ul id="table_menu" class="dropdown-menu" role="menu"
+			aria-labelledby="dropdownMenu1"
+			style="top: 219px; left: 530px; display: block;">
+			<li role="presentation" id="menu_get"><a role="menuitem"
+				tabindex="-1" href="javascript:void(0)"">查看</a></li>
+				<li role="presentation" id="menu_update"><a role="menuitem"
+					tabindex="-1" href="javascript:void(0)">修改</a></li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation" id="menu_delete"><a role="menuitem"
+						tabindex="-1" href="javascript:void(0)">删除</a></li>
+						<li role="presentation" class="divider"></li>
+						<li role="presentation" id="menu_top"><a role="menuitem"
+							tabindex="-1" href="javascript:void(0)">置顶</a></li>
+							<li role="presentation" id="menu_down"><a role="menuitem"
+								tabindex="-1" href="javascript:void(0)">置底</a></li>
+							</ul>
+							<script>
+
+							</script>
+
+
+							<div id="body_form_modal" class="modal fade">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<form id="body_form">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+												aria-hidden="true">×</button>
+												<h4 class="modal-title"></h4>
+											</div>
+											<div class="modal-body">
+												<div>
+													<div id="form_text_demo" class="form-group has-feedback">
+														<label class="control-label ">text1</label> <input type="text"
+														name="oldPassword" class="form-control" placeholder="text1">
+													</div>
+													<div class="form-group has-feedback has-success">
+														<label class="control-label ">text1</label> <input type="text"
+														name="oldPassword" class="form-control" placeholder="text1">
+														<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+													</div>
+													<div class="form-group has-feedback has-error">
+														<label class="control-label ">text1</label> <input type="text"
+														name="oldPassword" class="form-control" placeholder="text1">
+														<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+														<span class="help-block">错误信息提示</span>
+													</div>
+													<div id="form_textarea_demo" class="form-group has-feedback">
+														<label class="control-label ">文本框</label>
+														<textarea class="form-control" rows="3"></textarea>
+													</div>
+													<div id="form_img_demo" class="form-group has-feedback">
+														<label class="control-label ">图片上传</label><br /> <img
+														id="imgs" src="/static/img/upload.png"
+														style="display: inline;" alt="请上传" class="img-rounded">
+														<input type="text" style="display: none;"> <input
+														type="file" id="exampleInputFile">
+													</div>
+													<div class="checkbox">
+														<label> <input type="checkbox" value="">checkbox
+														</label>
+													</div>
+
+													<div class="radio">
+														<label> <input type="radio" name="optionsRadios"
+															value="option1">radio2
+														</label>
+													</div>
+													<div class="radio">
+														<label><input type="radio" name="optionsRadios"
+															value="option2">radio1 </label>
+														</div>
+														<div id="form_select_demo" class="form-group">
+															<label class="control-label ">单选</label> <select
+															class="form-control">
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+															<option>4</option>
+															<option>5</option>
+														</select>
+													</div>
+													<div id="form_editor_demo" class="form-group">
+														<label class="control-label ">文本编辑器</label>
+														<textarea id="editor" class="form-control" rows="20"></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+												data-dismiss="modal">关闭</button>
+												<button type="button" id="password_submit"
+												class="btn btn-primary">提 交</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</body>
+					</html>

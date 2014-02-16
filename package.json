@@ -1,0 +1,44 @@
+{
+  "family": "main",
+  "name": "manager",
+  "version": "0.0.1",
+  "description": "web app of manager",
+  "homepage": "https://github.com/oyb81076/manager",
+  "author": "oyb",
+  "maintainers": [
+    "oyb"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oyb81076/manager.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "output": [
+      "manager.js",
+      "manager.css"
+    ],
+    "alias": {
+      "jquery": "jquery/jquery/1.7.2/jquery",
+      "seajs":"seajs/seajs/2.1.1/seajs"
+      },
+    "devAlias": {},
+    "engines": {}
+  },
+  "config": {
+    "plugin-concat": [
+      "seajs-text.js"
+    ]
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cmd-transport": "~0.3.0",
+    "grunt-cmd-concat": "~0.2.5",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-clean": "~0.5.0"
+  }
+}
